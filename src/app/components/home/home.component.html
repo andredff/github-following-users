@@ -11,11 +11,14 @@
 
 <div class="home-container">
   <div class="card">
+    <div class="card-header">
+      Lista de usuários
+    </div>
     <div class="card-body">
       <input type="text" class="form-control" type="text" id="pesquisaInput" (keyup)="pesquisa()"
         placeholder="Pesquisar por nome" title="Type in a name">
       <table id="userTable" class="table table-striped table-bordered" style="width:100%">
-        <tr class="header">
+        <tr class="tr-header">
           <th style="width:30%">Nome</th>
           <th style="width:70%">url</th>
         </tr>
