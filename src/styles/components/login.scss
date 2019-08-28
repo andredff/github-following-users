@@ -1,0 +1,35 @@
+.login-container {
+  background-color: $zup-primary;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card {
+    width: 25em;
+    border: none;
+    .card-header {
+      background-color: $zup-mid-purple;
+      color: $zup-white;
+    }
+    .footer {
+      display: flex;
+      align-items: center;
+      a {
+        font-size: 12px;
+        color: #999999;
+        padding: 0 20px;
+        cursor: pointer;
+        &:hover {
+          color: $zup-light-purple;
+        }
+      }
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $zup-mid-purple !important;
+  border: none !important;
+  width: 100px;
+}

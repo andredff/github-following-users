@@ -1,0 +1,23 @@
+<nav class="header">
+  <div class="navbar-brand">
+    <img src="https://uploads-ssl.webflow.com/5cac6236f8d44ddee118d97c/5cac6366154dfc8bbe552ea6_logo-zup.svg" width="60"
+      height="60" alt="">
+  </div>
+  <div class="user">
+    <a class="badge badge-light" (click)="displayLogout()">{{ usuario }}</a>
+    <a class="badge badge-light" (click)="logout()">sair</a>
+  </div>
+</nav>
+
+<div class="home-container">
+  <div class="card">
+    <div class="card-body">
+      <input type="text" class="form-control" type="text" id="pesquisaInput" (keyup)="pesquisa()"
+        placeholder="Pesquisar por nome" title="Type in a name">
+
+      <ul id="users" class="list-group">
+        <li class="list-group-item" *ngFor="let user of users"><a> {{user.nome}} </a></li>
+      </ul>
+    </div>
+  </div>
+</div>

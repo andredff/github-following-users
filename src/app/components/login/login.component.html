@@ -1,0 +1,32 @@
+<div class="login-container">
+  <div class="card">
+    <div class="card-header">
+      Login Form
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="username" placeholder="Username" required
+            aria-label="Username">
+          <div class="input-group-append">
+            <span class="input-group-text">@</span>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" formControlName="password" placeholder="Password" required
+            aria-label="Password">
+          <div class="input-group-append">
+            <span class="input-group-text">@</span>
+          </div>
+        </div>
+
+        <div class="footer">
+          <button class="btn btn-primary" (click)="loginNoAuth()">Sign In</button>
+          <a>Lost Your Password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
