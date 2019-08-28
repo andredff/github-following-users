@@ -5,8 +5,9 @@
   justify-content: center;
   align-items: center;
   .card {
-    height: 400px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
+    overflow-y: scroll;
     .card-body input {
       margin: 10px 0;
     }

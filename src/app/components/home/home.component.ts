@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { User } from '../../shared/user.model';
 import { USERS } from '../../shared/user-mock';
-import { LoginService } from '../../services/login.service';
+import { LoginService, ListagemService } from '../../services';
 
 @Component({
   selector: 'app-home',
@@ -15,37 +15,49 @@ export class HomeComponent implements OnInit {
   public users: User[] = USERS;
   display = false;
   usuario: string;
+  followingUsers;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private listagemService: ListagemService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.users);
-    this.usuario = this.loginService.usuario.username;
-
+    // this.usuario = this.loginService.usuario.username;
+    this.getList();
   }
 
   /**
-   * Pesquisa do array de usuarios (lista) em Javascript
+   * Lista usuarios que eu estou seguindo com API do GITHUB
+   */
+  getList() {
+    this.listagemService.getList().subscribe(data => {
+      this.followingUsers = data;
+      console.log(this.followingUsers);
+    });
+  }
+
+  /**
+   * Pesquisa usuarios na lista que eu estou seguindo com API do GITHUB
    */
   pesquisa() {
     let input;
     let filter;
-    let ul;
-    let li;
-    let a;
+    let table;
+    let tr;
+    let td;
     let i;
     let txtValue;
     input = document.getElementById('pesquisaInput');
     filter = input.value.toUpperCase();
-    ul = document.getElementById('users');
-    li = ul.getElementsByTagName('li');
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName('a')[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = '';
-      } else {
-        li[i].style.display = 'none';
+    table = document.getElementById('userTable');
+    tr = table.getElementsByTagName('tr');
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName('td')[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = '';
+        } else {
+          tr[i].style.display = 'none';
+        }
       }
     }
   }
