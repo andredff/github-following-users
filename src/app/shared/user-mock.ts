@@ -1,5 +1,7 @@
 import { User } from './user.model';
-
+/**
+ * Criei o Mock mas optei por usar a listagem de usuarios que estou seguindo pela API do GITHUB
+ */
 export const USERS: User[] = [
   {
     id: 0,
